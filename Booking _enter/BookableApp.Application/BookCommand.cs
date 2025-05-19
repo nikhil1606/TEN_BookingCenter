@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Booking__enter.BookableApp.Application
+namespace Booking_Center.BookableApp.Application
 {
     public class BookCommand : IRequest<string>
     {

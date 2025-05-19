@@ -1,7 +1,7 @@
-﻿using Booking__enter.BookableApp.Domain;
+﻿using Booking_Center.BookableApp.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace Booking__enter.BookableApp.Infrastructure
+namespace Booking_Center.BookableApp.Infrastructure
 {
     public class AppDbContext : DbContext
     {

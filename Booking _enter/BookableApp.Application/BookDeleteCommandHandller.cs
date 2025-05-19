@@ -1,23 +1,29 @@
-﻿using Booking__enter.BookableApp.Infrastructure;
+﻿using Booking_Center.BookableApp.Infrastructure;
 using MediatR;
 using System.Threading.Tasks;
 
 namespace Booking_Center.BookableApp.Application
 {
-    public class BookDeleteCommandHandller:IRequestHandler<BookDeleteCommand,int>
+    public class BookDeleteCommandHandller:IRequestHandler<BookDeleteCommand,bool>
     {
-        public readonly AppDbContext context;
+        private readonly AppDbContext _context;
+
         public BookDeleteCommandHandller(AppDbContext context)
         {
-            this.context = context;
+            _context = context;
         }
-        public async Task<int> Handle(BookDeleteCommand request,CancellationToken cancellationToken)
+
+        public async Task<bool> Handle(BookDeleteCommand request, CancellationToken cancellationToken)
         {
-             context.Remove(request.id);
-            await context.SaveChangesAsync();
+            var member = await _context.Members.FindAsync(request.Id);
 
-            return 1;
+            if (member == null)
+                return false;
 
+            _context.Members.Remove(member);
+            await _context.SaveChangesAsync(cancellationToken);
+
+            return true;
         }
     }
 }

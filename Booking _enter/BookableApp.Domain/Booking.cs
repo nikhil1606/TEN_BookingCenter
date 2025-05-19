@@ -1,4 +1,4 @@
-﻿namespace Booking__enter.BookableApp.Domain
+﻿namespace Booking_Center.BookableApp.Domain
 {
     public class Booking
     {

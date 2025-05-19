@@ -1,9 +1,9 @@
-﻿using Booking__enter.BookableApp.Domain;
+﻿using Booking_Center.BookableApp.Domain;
 using CsvHelper;
 using System.Formats.Asn1;
 using System.Globalization;
 
-namespace Booking__enter.BookableApp.Infrastructure
+namespace Booking_Center.BookableApp.Infrastructure
 {
     public static class CsvLoader
     {

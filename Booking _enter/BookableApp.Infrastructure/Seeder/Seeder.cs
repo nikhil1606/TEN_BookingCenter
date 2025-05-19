@@ -1,4 +1,4 @@
-﻿namespace Booking__enter.BookableApp.Infrastructure.Seeder
+﻿namespace Booking_Center.BookableApp.Infrastructure.Seeder
 {
     public class Seeder
     {
@@ -6,12 +6,12 @@
         {
             if (!context.Members.Any())
             {
-                var members = CsvLoader.LoadMembers("members.csv");
+                var members = CsvLoader.LoadMembers("~/Data/members.csv");
                 context.Members.AddRange(members);
             }
             if (!context.InventoryItems.Any())
             {
-                var items = CsvLoader.LoadInventory("inventory.csv");
+                var items = CsvLoader.LoadInventory("~/Data/inventory.csv");
                 context.InventoryItems.AddRange(items);
             }
             await context.SaveChangesAsync();

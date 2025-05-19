@@ -1,8 +1,8 @@
-﻿using Booking__enter.BookableApp.Domain;
-using Booking__enter.BookableApp.Infrastructure;
+﻿using Booking_Center.BookableApp.Domain;
+using Booking_Center.BookableApp.Infrastructure;
 using MediatR;
 
-namespace Booking__enter.BookableApp.Application
+namespace Booking_Center.BookableApp.Application
 {
     public class BookCommandHandler : IRequestHandler<BookCommand, string>
     {

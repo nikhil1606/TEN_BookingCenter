@@ -1,9 +1,9 @@
-﻿using Booking__enter.BookableApp.Application;
+﻿using Booking_Center.BookableApp.Application;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Booking__enter.BookableApp.API
+namespace Booking_Center.BookableApp.API
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -13,7 +13,7 @@ namespace Booking__enter.BookableApp.API
         public BookingController(IMediator mediator) => _mediator = mediator;
 
         [HttpPost("book")]
-        public async Task<IActionResult> Book(BookCommand command)
+        public async Task<IActionResult> Book([FromBody] BookCommand command)
         {
             var result = await _mediator.Send(command);
             return Ok(result);
@@ -22,8 +22,9 @@ namespace Booking__enter.BookableApp.API
         [HttpDelete("cancel/{id}")]
         public async Task<IActionResult> Cancel(int id)
         {
-            var result= await _mediator.Send(id);
-            return Ok("Cancel endpoint hit.");
+            var result= await _mediator.Send(new BookDeleteCommand(id));
+            if (!result) return NotFound();
+            return NoContent();
         }
     }
 }

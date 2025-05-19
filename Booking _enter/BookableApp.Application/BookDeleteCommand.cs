@@ -2,8 +2,6 @@
 
 namespace Booking_Center.BookableApp.Application
 {
-    public class BookDeleteCommand:IRequest<int>
-    {
-        public int id { get; set; }
-    }
+    public record BookDeleteCommand(int Id) : IRequest<bool>;
+   
 }

@@ -1,0 +1,22 @@
+CREATE TABLE Members (
+    MemberId INT PRIMARY KEY IDENTITY(1,1),
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    BookingCount INT NOT NULL DEFAULT 0,
+    DateJoined DATETIME NOT NULL
+);
+
+----------------------------------
+CREATE TABLE InventoryItems (
+    InventoryId INT PRIMARY KEY IDENTITY(1,1),
+    Title VARCHAR(100) NOT NULL,
+    Description TEXT,
+    RemainingCount INT NOT NULL DEFAULT 0,
+    ExpirationDate DATE NOT NULL
+);
+----------------------
+CREATE TABLE Bookings (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    MemberId INT NOT NULL,
+    InventoryItemId INT NOT NULL
+);
